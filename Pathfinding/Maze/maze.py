@@ -19,7 +19,7 @@ class Maze():
         self.G.add_edge('G', 'E', weight=5)
 
     def get_actions(self, state):
-        return self.G.neighbors(state)
+        return list(self.G.neighbors(state))
 
     def draw(self):
         pos = nx.spring_layout(G)
