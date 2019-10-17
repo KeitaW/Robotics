@@ -22,7 +22,7 @@ class Maze():
         return list(self.G.neighbors(state))
 
     def draw(self):
-        pos = nx.spring_layout(G)
+        pos = nx.spring_layout(self.G)
         nx.draw(self.G, pos, with_labels=True)
         nx.draw_networkx_edge_labels(self.G, pos)
 
