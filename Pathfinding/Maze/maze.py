@@ -5,22 +5,6 @@ import matplotlib.pyplot as plt
 
 class Maze():
     def __init__(self):
-        # state set
-        self.S = ['S', 'A', 'B', 'C', 'D', 'E', 'G']
-        # action set
-        self.A = [
-            ('A', 'B'),
-            ('A', 'C'),
-            ('A', 'S'),
-            ('B', 'S'),
-            ('C', 'S'),
-            ('B', 'E'),
-            ('C', 'E'),
-            ('C', 'D'),
-            ('D', 'E'),
-            ('G', 'D'),
-            ('G', 'E'),
-        ]
         self.G = nx.Graph()
         self.G.add_edge('A', 'B', weight=6)
         self.G.add_edge('A', 'C', weight=1)
@@ -34,6 +18,9 @@ class Maze():
         self.G.add_edge('G', 'D', weight=1)
         self.G.add_edge('G', 'E', weight=5)
 
+    def get_actions(self, state):
+        return self.G.neighbors(state)
+
     def draw(self):
         pos = nx.spring_layout(G)
         nx.draw(self.G, pos, with_labels=True)
@@ -43,3 +30,4 @@ class Maze():
 if __name__ == "__main__":
     graph = Maze()
     graph.draw()
+    print(list(graph.get_actions('S')))
