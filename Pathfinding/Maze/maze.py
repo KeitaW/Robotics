@@ -9,17 +9,17 @@ class Maze():
         self.S = ['S', 'A', 'B', 'C', 'D', 'E', 'G']
         # action set
         self.A = [
-            'A', 'B'
-            'A', 'C'
-            'A', 'S'
-            'B', 'S'
-            'C', 'S'
-            'B', 'E'
-            'C', 'E'
-            'C', 'D'
-            'D', 'E'
-            'G', 'D'
-            'G', 'E'
+            ('A', 'B'),
+            ('A', 'C'),
+            ('A', 'S'),
+            ('B', 'S'),
+            ('C', 'S'),
+            ('B', 'E'),
+            ('C', 'E'),
+            ('C', 'D'),
+            ('D', 'E'),
+            ('G', 'D'),
+            ('G', 'E'),
         ]
         self.G = nx.Graph()
         self.G.add_edge('A', 'B', weight=6)
